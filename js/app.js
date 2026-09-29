@@ -13,8 +13,8 @@ var RBApp = (function () {
     mode = m === 'edit' ? 'edit' : 'play';
     if ($('#playApp')) $('#playApp').hidden = mode !== 'play';
     if ($('#editApp')) $('#editApp').hidden = mode !== 'edit';
-    $('#modePlay').classList.toggle('on', mode === 'play');
-    $('#modeEdit').classList.toggle('on', mode === 'edit');
+    if ($('#modePlay')) $('#modePlay').classList.toggle('on', mode === 'play');
+    if ($('#modeEdit')) $('#modeEdit').classList.toggle('on', mode === 'edit');
     try { history.replaceState(null, '', '#' + mode); } catch (e) { /* noop */ }
     window.scrollTo(0, 0);
     if (mode === 'edit') { if (E()) E().onShow(); } else if (G()) G().onShow();
